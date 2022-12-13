@@ -16,8 +16,8 @@ const aluno = {
   },
   calcularMedia: function media (nota){
     if (this.notas.length > 0) {  // verifica se existem notas
-        var total = 0;
-        for (var i = 0; i < this.notas.length; i++) {  // percorre o array somando cada nota
+        let total = 0;
+        for (let i = 0; i < this.notas.length; i++) {  // percorre o array somando cada nota
             total += this.notas[i];  // essa linha é uma forma resumida de escrever o código total = total + this.notas[i];
         }
         return total / this.notas.length;  // retorna a soma total de notas dividido pela quantidade de notas
@@ -28,7 +28,7 @@ const aluno = {
   calcularFaltas: function quantidadeFaltas (falta){
     var total = 0;
     if (this.quantidadeFaltas.length > 0) {  // verifica se existem faltas
-      for (var i = 0; i < this.quantidadeFaltas.length; i++) {  // percorre o array somando cada falta
+      for (let i = 0; i < this.quantidadeFaltas.length; i++) {  // percorre o array somando cada falta
           total += this.quantidadeFaltas[i];  // essa linha é uma forma resumida de escrever o código total
       }
   }

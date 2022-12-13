@@ -11,11 +11,11 @@ const curso = {
   nomeDoCurso: "Javascript",
   notaDeAprovação: 6.5,
   faltasMaximas: 3,
-  listaDeAlunos: [  ]
+  listaDeEstudantes: [  ]
   };
   
   curso.adicionarAluno = function adicionar (aluno){
-    this.listaDeAlunos.push(aluno);
+    this.listaDeEstudantes.push(aluno);
 };
 
 curso.adicionarAluno({
@@ -24,5 +24,5 @@ curso.adicionarAluno({
   notas: [10, 8]
 });
 
-  console.log(curso.listaDeAlunos);
+  console.log(curso.listaDeEstudantes);
   
