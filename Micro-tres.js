@@ -13,11 +13,16 @@ const curso = {
   faltasMaximas: 3,
   listaDeAlunos: [  ]
   };
+  
+  curso.adicionarAluno = function adicionar (aluno){
+    this.listaDeAlunos.push(aluno);
+};
 
-  curso.listaDeAlunos.push({
-    nome: "Luiza",
-    quantidadeFaltas: 0,
-    notas: [10, 8]
+curso.adicionarAluno({
+  nome: "Luiza",
+  quantidadeFaltas: 0,
+  notas: [10, 8]
 });
 
   console.log(curso.listaDeAlunos);
+  
