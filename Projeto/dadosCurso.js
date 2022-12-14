@@ -36,7 +36,7 @@ const curso = {
     if (aluno.quantidadeFaltas < this.faltasMaximas)   {// verifica se o aluno tem menos faltas que as faltas máximas
         if (aluno.calcularMedia() >= this.notaDeAprovacao) {  // verifica se a nota é maior ou igual a nota de aprovação
             return true;  // se sim, retorna que o aluno está aprovado
-        }
+        } 
     };
   
     if (aluno.quantidadeFaltas === this.faltasMaximas) {  // verifica se o aluno tem o mesmo número de faltas que as faltas máximas
@@ -49,13 +49,15 @@ const curso = {
     return false;  // se não retornar nas condições acima, retorna que o aluno está reprovado
   }};
 
-
+  console.log(curso.listaDeEstudantes);
+  for (let i = 0; i < curso.listaDeEstudantes.length; i++) {  // percorre o array verificando aprovação de cada aluno
+      console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]));
+  }
+  
   curso.adicionarAluno = function adicionar (aluno){
     this.listaDeEstudantes.push(aluno);
     
 };
-
-var aluno = " ";
 
 curso.adicionarAluno({
   nome: "Luiza",
@@ -85,6 +87,6 @@ curso.adicionarAluno({
 
 
   console.log(curso.listaDeEstudantes);
-  console.log(curso.verificarAprovacao(aluno));
+  console.log(curso.buscarListaDeAprovacoes());
 
 module.exports = dadosCurso;
