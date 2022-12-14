@@ -1,7 +1,7 @@
 const {Aluno} = require("./dadosAlunos");
 console.log(Aluno);
 
-const {cursoes} = require("./dadosCurso");
+const {curso} = require("./dadosCurso");
 console.log(curso);
 
 console.log(aluno1.notas);
