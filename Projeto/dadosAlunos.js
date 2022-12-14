@@ -6,36 +6,29 @@ Passo - 2 - Nosso objeto aluno terá o método calcularMedia que retorna a médi
 Também terá um método chamado faltas, que simplesmente aumenta o número de faltas
 em 1.*/
 
-const aluno = {
-  nome: " ",
-  quantidadeFaltas: [ ],
-  notas: [ ],
-  
-  calcularMedia: function media (nota){
-    if (this.notas.length > 0) {  // verifica se existem notas
-        let total = 0;
-        for (let i = 0; i < this.notas.length; i++) {  // percorre o array somando cada nota
-            total += this.notas[i];  // essa linha é uma forma resumida de escrever o código total = total + this.notas[i];
-        }
-        return total / this.notas.length;  // retorna a soma total de notas dividido pela quantidade de notas
-    }
-    return 0; // se não existir notas, retorna a média 0
-},
+class Aluno {
+  constructor(nome, quantidadeFaltas, notas) {
+    this.nome = nome;
+    this.quantidadeFaltas = quantidadeFaltas;
+    this.notas = notas;
+  };
 
-  calcularFaltas: function quantidadeFaltas (falta){
-    var total = 0;
-    if (this.quantidadeFaltas.length > 0) {  // verifica se existem faltas
-      for (let i = 0; i < this.quantidadeFaltas.length; i++) {  // percorre o array somando cada falta
-          total += this.quantidadeFaltas[i];  // essa linha é uma forma resumida de escrever o código total
+  adicionarFalta() {
+    this.quantidadeFaltas = this.quantidadeFaltas + 1;
+  };
+
+  calcularMedia(nota) {
+    if (this.notas.length > 0) {
+      let total = 0;
+      for (let i = 0; i < this.notas.length; i++) {
+        total += this.notas[i];
       }
-  }
-  return total; // traz o valor total do calculo
-  },
-};
+      return total / this.notas.length;
+    }
+    return 0;
+  };
+
+}
 
 
-console.log(aluno.notas);
-console.log(aluno.calcularMedia());
-console.log(aluno.calcularFaltas());
-
-module.exports = dadosAlunos;
+module.exports = {Aluno};

@@ -24,75 +24,86 @@ que contém o objeto curso. Substitua o conteúdo da propriedade lista de estuda
 lista de estudantes do arquivo estudantes.js e garanta que sigam funcionando todos os
 métodos corretamente. (revisar que o arquivo tenha todos os métodos corretamente).*/
 
-const curso = {
-  nomeDoCurso: "Javascript",
-  notaDeAprovacao: 6.5,
-  faltasMaximas: 3,
-  listaDeEstudantes: [  ],
+class Curso {
+  constructor(nomeDoCurso, notaDeAprovacao, faltasMaximas) {
+    this.nomeDoCurso = nomeDoCurso;
+    this.notaDeAprovacao = notaDeAprovacao;
+    this.faltasMaximas = faltasMaximas;
+    this.listaDeAlunos = [];
+  };
 
-  listarAprovacoes: function aprovacoes (){
-    for (let i = 0; i < curso.listaDeEstudantes.length; i++) {
-      console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]));
-    }
-  },
+  adicionarAluno(aluno) {
+    this.listaDeAlunos.push(aluno);
+  };
 
-  verificarAprovacao: function verificar (aluno){
-    if (aluno.quantidadeFaltas < this.faltasMaximas)   {// verifica se o aluno tem menos faltas que as faltas máximas
-        if (aluno.calcularMedia() >= this.notaDeAprovacao) {  // verifica se a nota é maior ou igual a nota de aprovação
-            return true;  // se sim, retorna que o aluno está aprovado
-        } 
+  verificarAprovacao(aluno) {
+    if (aluno.quantidadeFaltas < this.faltasMaximas) {
+        if (aluno.calcularMedia() >= this.notaDeAprovacao) {
+            return true;
+        }
     };
   
-    if (aluno.quantidadeFaltas === this.faltasMaximas) {  // verifica se o aluno tem o mesmo número de faltas que as faltas máximas
-        var notaNecessaria = this.notaDeAprovacao + (0.1 * this.notaDeAprovacao);  // soma a nota de aprovação com os 10% a mais necessário
-        if (aluno.calcularMedia() >= notaNecessaria) {  // verifica se a nota é maior ou igual a nova nota de aprovação
-            return true;  // se sim, retorna que o aluno está aprovado
+    if (aluno.quantidadeFaltas === this.faltasMaximas) {
+        var notaNecessaria = this.notaDeAprovacao + (0.1 * this.notaDeAprovacao);
+        if (aluno.calcularMedia() >= notaNecessaria) {
+            return true;
         }
     }
   
-    return false;  // se não retornar nas condições acima, retorna que o aluno está reprovado
-  }};
+    return false;
+  };
 
-  console.log(curso.listaDeEstudantes);
-  for (let i = 0; i < curso.listaDeEstudantes.length; i++) {  // percorre o array verificando aprovação de cada aluno
-      console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]))
-  }
-  
-  curso.adicionarAluno = function adicionar (aluno){
-    this.listaDeEstudantes.push(aluno);
-    
+  buscarListaDeAprovacoes() {
+    var listaDeAprovacoes = [];
+
+    for (var i = 0; i < this.listaDeAlunos.length; i++) {
+        var aluno = this.listaDeAlunos[i];
+        listaDeAprovacoes.push(this.verificarAprovacao(aluno));
+    }
+
+    return listaDeAprovacoes;
+  };
 };
 
-curso.adicionarAluno({
-  nome: "Luiza",
-  quantidadeFaltas: 4,
-  notas: [10, 8]
-});
-curso.adicionarAluno({
-  nome: "Luiz",
-  quantidadeFaltas: 2,
-  notas: [10, 8]
-});
-curso.adicionarAluno({
-  nome: "Antonio",
-  quantidadeFaltas: 0,
-  notas: [10, 8]
-});
-curso.adicionarAluno({
-  nome: "Thiago",
-  quantidadeFaltas: 1,
-  notas: [10, 8]
-});
-curso.adicionarAluno({
-  nome: "Karen",
-  quantidadeFaltas: 0,
-  notas: [10, 8]
-});
 
 
-  console.log(curso.listaDeEstudantes);
-  console.log(curso.listarAprovacoes);
+const curso = new Curso('Javascript', 6.5, 3);
 
-  
+const aluno1 = new Aluno('Luiza', 4, [10, 8]);
+const aluno2 = new Aluno('Luiz', 2, [9, 8]);
+const aluno3 = new Aluno('Antonio', 0, [10, 7]);
 
-//module.exports = dadosCurso;
+aluno1.adicionarFalta();
+
+curso.adicionarAluno(aluno1);
+curso.adicionarAluno(aluno2);
+curso.adicionarAluno(aluno3);
+
+
+
+console.log(aluno1.notas);
+console.log(aluno1.calcularMedia());
+console.log(aluno1.quantidadeFaltas);
+console.log(curso.listaDeAlunos);
+console.log(curso.verificarAprovacao(aluno1));
+console.log(curso.buscarListaDeAprovacoes());
+
+  module.exports = {curso, listaDeAprovacoes};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
