@@ -24,8 +24,6 @@ que contém o objeto curso. Substitua o conteúdo da propriedade lista de estuda
 lista de estudantes do arquivo estudantes.js e garanta que sigam funcionando todos os
 métodos corretamente. (revisar que o arquivo tenha todos os métodos corretamente).*/
 
-
-
 const curso = {
   nomeDoCurso: "Javascript",
   notaDeAprovacao: 6.5,
@@ -51,9 +49,15 @@ const curso = {
 
   console.log(curso.listaDeEstudantes);
   for (let i = 0; i < curso.listaDeEstudantes.length; i++) {  // percorre o array verificando aprovação de cada aluno
-      console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]));
+      console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]))
+      listarAprovacoes: function aprovacoes (){
+        for (let i = 0; i < curso.listaDeEstudantes.length; i++) {
+          console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]));
+        }
+      }
   }
   
+
   curso.adicionarAluno = function adicionar (aluno){
     this.listaDeEstudantes.push(aluno);
     
@@ -87,6 +91,6 @@ curso.adicionarAluno({
 
 
   console.log(curso.listaDeEstudantes);
-  console.log(curso.buscarListaDeAprovacoes());
+  console.log(curso.listarAprovacoes());
 
 module.exports = dadosCurso;
