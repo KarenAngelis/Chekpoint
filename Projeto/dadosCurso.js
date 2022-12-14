@@ -91,8 +91,8 @@ curso.adicionarAluno({
 
 
   console.log(curso.listaDeEstudantes);
-  console.log(curso.listarAprovacoes());
+  console.log(curso.listarAprovacoes);
 
   
 
-module.exports = dadosCurso;
+//module.exports = dadosCurso;
