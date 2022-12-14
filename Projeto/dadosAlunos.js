@@ -10,10 +10,7 @@ const aluno = {
   nome: " ",
   quantidadeFaltas: [ ],
   notas: [ ],
-
-  moduloAluno: function (listaDeAlunos){
-    
-  },
+  
   calcularMedia: function media (nota){
     if (this.notas.length > 0) {  // verifica se existem notas
         let total = 0;
@@ -40,3 +37,5 @@ const aluno = {
 console.log(aluno.notas);
 console.log(aluno.calcularMedia());
 console.log(aluno.calcularFaltas());
+
+module.exports = dadosAlunos;
