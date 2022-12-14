@@ -30,6 +30,12 @@ const curso = {
   faltasMaximas: 3,
   listaDeEstudantes: [  ],
 
+  listarAprovacoes: function aprovacoes (){
+    for (let i = 0; i < curso.listaDeEstudantes.length; i++) {
+      console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]));
+    }
+  },
+
   verificarAprovacao: function verificar (aluno){
     if (aluno.quantidadeFaltas < this.faltasMaximas)   {// verifica se o aluno tem menos faltas que as faltas máximas
         if (aluno.calcularMedia() >= this.notaDeAprovacao) {  // verifica se a nota é maior ou igual a nota de aprovação
@@ -50,14 +56,8 @@ const curso = {
   console.log(curso.listaDeEstudantes);
   for (let i = 0; i < curso.listaDeEstudantes.length; i++) {  // percorre o array verificando aprovação de cada aluno
       console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]))
-      listarAprovacoes: function aprovacoes (){
-        for (let i = 0; i < curso.listaDeEstudantes.length; i++) {
-          console.log(curso.verificarAprovacao(curso.listaDeEstudantes[i]));
-        }
-      }
   }
   
-
   curso.adicionarAluno = function adicionar (aluno){
     this.listaDeEstudantes.push(aluno);
     
@@ -92,5 +92,7 @@ curso.adicionarAluno({
 
   console.log(curso.listaDeEstudantes);
   console.log(curso.listarAprovacoes());
+
+  
 
 module.exports = dadosCurso;
